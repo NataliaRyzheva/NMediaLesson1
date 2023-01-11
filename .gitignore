@@ -25,6 +25,7 @@ captures/
 .cxx
 google-services.json
 
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
