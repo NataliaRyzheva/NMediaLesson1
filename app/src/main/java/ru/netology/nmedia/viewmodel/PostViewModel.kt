@@ -30,7 +30,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
         get() = _postCreated
 
     init {
-       loadPosts()
+        loadPosts()
     }
 
     fun loadPosts() {
@@ -71,7 +71,17 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun likeById(post: Post) {
-        thread { repository.likeById(post) }
+        thread {
+            val likedPost = repository.likeById(post)
+            val posts = _data.value?.posts.orEmpty().map {
+                if (it.id == post.id) {
+                    likedPost
+                } else {
+                    it
+                }
+            }
+            _data.postValue(_data.value?.copy(posts = posts))
+        }
     }
 
 
@@ -92,3 +102,6 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 }
+
+
+

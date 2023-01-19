@@ -8,4 +8,6 @@ data class FeedModel(
     val error: Boolean = false,
     val empty: Boolean = false,
     val refreshing: Boolean = false,
-)
+) {
+
+}
