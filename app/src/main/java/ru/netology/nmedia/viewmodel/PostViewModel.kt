@@ -84,7 +84,6 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-
     fun removeById(id: Long) {
         thread {
             // Оптимистичная модель
